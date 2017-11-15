@@ -180,7 +180,9 @@ char  **split(char *str)
 
 void  freetab(char **tab)
 {
-  for (int i = 0; tab[i]; i++)
+  int i;
+
+  for (i = 0; tab[i]; i++)
     free(tab[i]);
   free(tab);
 }
@@ -236,9 +238,10 @@ VALUE cast_Parser_next_token(VALUE self) {
     return Qnil;
   }
 
-  //////////////////////////////////////////////
+  /**/
 
-  int     diff = strlen(self_p->bot) - strlen(self_p->tok);
+  unsigned int     diff;
+  diff = strlen(self_p->bot) - strlen(self_p->tok);
   int     line = 0;
   int     col = 0;
   int     count = 0;
